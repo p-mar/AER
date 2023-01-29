@@ -1,0 +1,21 @@
+.title {
+    margin-left: 700px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.text {
+ 
+    margin-left: 700px;
+    text-align:left;
+}
+
+.footer {
+    display: block;
+    text-align: center;
+  }
+
+.page {
+    margin-bottom: 300px;
+    backdrop-filter: blur(20px);
+}

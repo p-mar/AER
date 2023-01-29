@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <title>
+        AER - Help
+    </title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/navig_bar.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/frame.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/list.css' %}"/>
+<link rel="icon" type="image/x-icon" href="{% static 'logo/icon.png' %}">
+<script src="{% static 'js/list.js' %}"></script>
+</head>
+
+<body style="background-color:#EEEEEE;">
+
+    <div class="navbar">
+        <div class=logo><img src="{% static 'logo/logo.png' %}"></div>
+            <a href="../">Home</a>
+            <a href="../history">History</a>
+            <a href="../help">About</a>
+            <a href="../contact">Contact</a>
+    </div>
+
+<br>
+<div class="page">
+<div class="text">
+<br>
+
+<table>
+    <th><br>  <div class="frame"><div class ="title">FAQ - Most frequently asked questions</div> </div>  <br></th>
+
+    <tr>
+        <td style="text-align: center" class="question">What model is used for FER*?</td>
+      </tr>
+      <tr>
+        <td style="text-align: center">Implemented model is called DAN and it has been created by Zhengyao Wen, Wenzhong Lin, Tao Wang and Ge Xu from Minjiang University in China. <br>Link to source code: <a href=https://github.com/yaoing/DAN>DAN model</a></td>
+      </tr>
+      <tr>
+        <td style="text-align: center" class="question">What are image mode and video mode?</td>
+      </tr>
+      <tr>
+        <td style="text-align: center">Image mode is for FER based on image file, while video mode is for video file.</td>
+      </tr>
+    <tr>
+      <td style="text-align: center" class="question">In what form results are presented after successful FER process?</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">In both modes, results are available in downloadable file. Additionaly, in image mode result is displayed on the page</td>
+    </tr>
+    <tr>
+      <td style="text-align: center" class="question">What kind of changes were introduced to the model?</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Multiple face detection using cv2 library** and adjusting the model to work on video files by dividing them into frames.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center" class="question">What API was used?</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">REST API was implemented using Django Rest Framework. It communicates with server through json files.</td>
+    </tr>
+    <tr>
+        <td style="text-align: center" class="question">What future features are planned to be developed as of now?What API was used?</td>
+      </tr>
+      <tr>
+        <td style="text-align: center">Server and data base setup in UNIX. Asynchronous tasks with celery and RabbitMQ.</td>
+      </tr>
+
+      <tr>
+        <td style="text-align: center" class="question">What is the structure of file with results?</td>
+      </tr>
+      <tr>
+        <td style="text-align: center">1. image mode result file - recognized emotion : face coordinates
+            <br>2. video mode result file - recognized emotion : face coordinates : time : frame</td>
+      </tr>
+      <tr>
+        <td style="text-align: center" class="question">What was used to create web application?</td>
+      </tr>
+      <tr>
+        <td style="text-align: center">For web application creation, Django framework was used together with html, css, js, bulma and more.</td>
+      </tr>
+      <tr>
+        <td style="text-align: center" class="question">Why was the app created?</td>
+      </tr>
+      <tr>
+        <td style="text-align: center">The developed app is a part of my thesis, needed to prove, that I indeed deserve the title of Bachelor.</td>
+      </tr>
+      <tr>
+        <td style="text-align: center" class="question">How to use it?</td>
+      </tr>
+
+     
+
+  </table>
+
+  <h1>I. Image mode</h1>
+</div>
+</div>
+</div>
+<div class=footer>
+    <footer>
+        <p>*FER - Facial Emotion Recognition<br>**cv2 library - OpenCV Python library</p>
+        <br><br>
+        <p style="text-align:center">© 2022 AER®</p>
+</body>
+
+</html>

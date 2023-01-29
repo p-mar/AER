@@ -1,0 +1,12 @@
+.frame {
+    width: 500px;
+    height: 500px;
+    border: 3px solid #ccc;
+    margin: auto;
+    padding: 15px 10px;
+  }
+
+.status {
+    color: green;
+}
+

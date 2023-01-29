@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+<head>
+       <title>AER - Video File</title>
+        <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <style>
+        .page {text-align: center;}
+
+        </style>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/buttons.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/navig_bar.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/progress_bar.css' %}"/>
+        <link rel="icon" type="image/x-icon" href="{% static 'logo/icon.png' %}">
+        <script type="text/javascript" src="progress_bar.js"></script>
+</head>
+<body>
+  <div class="navbar">
+    <div class=logo><img src="{% static 'logo/logo.png' %}"></div>
+        <a href="../">Home</a>
+        <a href="../history">History</a>
+        <a href="../help">About</a>
+        <a href="../contact">Contact</a>
+</div>
+<div class="back_button">
+<input class="button" onclick="location.href='../'" value = "Go Back"></div>
+<div class="page">
+<br>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+   {{ form.as_p }}
+   <br>
+  <input class = "button" type = "submit" value = "Submit"></button>
+    <br>
+
+
+</form>
+
+{% if vid_obj %}
+<br>
+<br>
+  <div class="round_button">
+    <a href="../upload_video/download" style="color: white">Download result</a>
+  </div>
+{% endif %}
+</div>
+<div class=footer>
+  <footer>
+      <p style="text-align:center">© 2022 AER®</p>
+    </footer></div>
+</body>
+=======
+=======
+>>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+    <head>
+        <title>Facial Emotion Recognition - Video File</title>
+            <link rel="stylesheet"
+                  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+            <style>
+            .page {text-align: center;}
+
+        </style>
+    </head>
+    <body>
+    <div class="back_button">
+    <input class="button" onclick="history.back()" value = "Go Back"></div>
+		<div style="width: 500px; margin: auto;">
+			<fieldset name="Video File Upload">
+				{% if msg %} {% autoescape off %} {{ msg }} {% endautoescape %} {% endif %}
+				<form method="post" action="/" enctype="multipart/form-data">
+					{% csrf_token %}
+					<dl>
+						<p>
+							<label>Select a video file</label>&nbsp;&nbsp;
+							<input type="file" name="file" autocomplete="off" required>
+						</p>
+					</dl>
+					<p>
+						<input type="submit" value="Upload">
+					</p>
+				</form>
+			</fieldset>
+			
+			{% if filename %}
+				<div style="margin: 10px auto;">
+					<video autoplay="autoplay" controls="controls" preload="preload">
+						<source src="{{ MEDIA_URL }}/{{ filename }}" type="video/mp4"></source>
+					</video>
+				</div>
+			{% endif %}
+		</div>	
+    </body>
+<<<<<<< HEAD
+>>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
+=======
+>>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+</html>
