@@ -39,14 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ferapp.apps.FerappConfig',
-<<<<<<< HEAD
-<<<<<<< HEAD
     'rest_framework',
     'django_celery_beat'
-=======
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
 ]
 
 MIDDLEWARE = [
@@ -125,19 +119,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 STATIC_URL = "/static/"
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-=======
-STATIC_URL = 'static/'
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
-STATIC_URL = 'static/'
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -149,12 +137,6 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'media/')
 MEDIA_URL= "/media/"
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 # Celery settings
 CELERY_BROKER_URL = "localhost"
-=======
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
