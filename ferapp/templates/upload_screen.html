@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 <head>
        <title>AER - Video File</title>
@@ -53,49 +51,5 @@
       <p style="text-align:center">© 2022 AER®</p>
     </footer></div>
 </body>
-=======
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
-    <head>
-        <title>Facial Emotion Recognition - Video File</title>
-            <link rel="stylesheet"
-                  href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-            <style>
-            .page {text-align: center;}
 
-        </style>
-    </head>
-    <body>
-    <div class="back_button">
-    <input class="button" onclick="history.back()" value = "Go Back"></div>
-		<div style="width: 500px; margin: auto;">
-			<fieldset name="Video File Upload">
-				{% if msg %} {% autoescape off %} {{ msg }} {% endautoescape %} {% endif %}
-				<form method="post" action="/" enctype="multipart/form-data">
-					{% csrf_token %}
-					<dl>
-						<p>
-							<label>Select a video file</label>&nbsp;&nbsp;
-							<input type="file" name="file" autocomplete="off" required>
-						</p>
-					</dl>
-					<p>
-						<input type="submit" value="Upload">
-					</p>
-				</form>
-			</fieldset>
-			
-			{% if filename %}
-				<div style="margin: 10px auto;">
-					<video autoplay="autoplay" controls="controls" preload="preload">
-						<source src="{{ MEDIA_URL }}/{{ filename }}" type="video/mp4"></source>
-					</video>
-				</div>
-			{% endif %}
-		</div>	
-    </body>
-<<<<<<< HEAD
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
 </html>
