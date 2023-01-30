@@ -2,23 +2,15 @@
 <html>
 
 <head>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
        <title>AER - Image File</title>
-=======
-       <title>FER - Image File</title>
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
-       <title>FER - Image File</title>
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
         <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <style>
         .page {text-align: center;}
 
         </style>
-<<<<<<< HEAD
-<<<<<<< HEAD
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/navig_bar.css' %}"/>
         <link rel="stylesheet" href="{% static 'css/buttons.css' %}"/>
@@ -39,20 +31,8 @@
 <br>
 <br>
 <br>
-=======
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
-</head>
-<body>
 
-<div class="back_button">
-<input class="button" onclick="history.back()" value = "Go Back"></div>
-<div class="page">
-<br>
-<<<<<<< HEAD
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
    {{ form.as_p }}
@@ -64,8 +44,7 @@
 {% if img_obj %}
 <br>
 <br>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <div class="status">
 <p>Succesfully analyzed : {{img_obj.title}}</p></div>
 <div class="frame">
@@ -83,16 +62,6 @@
       <p style="text-align:center">© 2022 AER®</p>
     </footer></div>
 
-=======
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
-  <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
- <div class="emotion"> <h3>Identified emotion : {{emotion}}</h3></div>
-{% endif %}
-</div>
-<<<<<<< HEAD
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
 </body>
 </html>
