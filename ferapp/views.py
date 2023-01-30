@@ -2,40 +2,28 @@ from django.shortcuts import render, loader
 from .forms import UploadFileForm
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import HttpResponse
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 from .forms import ImageForm, VideoForm
 from .ml_model.image_mode import dan_image
 from .ml_model.video_mode import dan_video
 import mimetypes
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import Image, Video
-from .serializer import ImageSerializer
+from .models import Image, Video, File
+from .serializer import ImageSerializer, VideoSerializer, FileSerializer
 import shutil
 FILE_TITLE=''
 
 def changeTitle(new_title):
     return new_title
-=======
-from .forms import ImageForm
-from .ml_model.image_mode import dan_image
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
-from .forms import ImageForm
-from .ml_model.image_mode import dan_image
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
 
 def index(request):
   template = loader.get_template('home.html')
   return HttpResponse(template.render())
 
 @ensure_csrf_cookie
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
 def upload_screen(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -48,35 +36,19 @@ def upload_screen(request):
         form = UploadFileForm()
     return render(request, 'upload_screen.html', {'form': form})
 
-<<<<<<< HEAD
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
 def handle_uploaded_file(f):
     with open(f.name, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
-            
-def upload_video(request):
-  template = loader.get_template('upload_screen.html')
-  return HttpResponse(template.render({}, request))
-<<<<<<< HEAD
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
 
 def upload_image(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             img_obj = form.instance
             new_url = img_obj.image.url[1:]
             global FILE_TITLE
@@ -84,28 +56,13 @@ def upload_image(request):
             dan_image.main(new_url)
             fp=open('ferapp\ml_model\image_mode\emotion.txt','r')
             emotion=str(fp.read())
-=======
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
-            # Get the current instance object to display in the template
-            img_obj = form.instance
-            new_url = img_obj.image.url[1:]
-            dan_image.main(new_url)
-            fp=open('ferapp\ml_model\image_mode\emotion.txt','r')
-            emotion=str(fp.readline())
-            print(emotion)
-<<<<<<< HEAD
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
             fp.close()
             return render(request, 'upload_image.html', {'form': form, 'img_obj': img_obj, 'emotion': emotion})
     else:
         form = ImageForm()
     return render(request, 'upload_image.html', {'form': form})
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 def upload_video(request):
     if request.method == 'POST':
         form = VideoForm(request.POST, request.FILES)
@@ -154,7 +111,7 @@ def history(request_iter):
 def contact(request_iter):
     return render(request_iter,'contact_page.html')
 
-# Create your views here.
+# rest api requests
 @api_view(['GET'])
 def getImage(request):
     image = Image.objects.all()
@@ -167,9 +124,29 @@ def postImage(request):
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
-=======
-    
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
-    
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
+
+@api_view(['GET'])
+def getVideo(request):
+    video = Video.objects.all()
+    serializer = VideoSerializer(video, many=True)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def postVideo(request):
+    serializer = VideoSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getFile(request):
+    file = File.objects.all()
+    serializer = FileSerializer(file, many=True)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def postFile(request):
+    serializer = FileSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
