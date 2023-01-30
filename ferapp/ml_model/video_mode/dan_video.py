@@ -86,6 +86,4 @@ def main(video, vid_title):
     for x in range(int(frames)):
         img=str("ferapp\ml_model\\video_mode\\frames\\frame"+str(x+1)+".jpg")
         image_analyzer(img, x+1, fp, fps)
-        if x==3:
-            break
     fp.close()
