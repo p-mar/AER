@@ -33,16 +33,10 @@ class Model():
         return faces
 
     def fer(self, path):
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         labels=[]
         cooridnates=[]
-=======
 
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
-
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
         img0 = Image.open(path).convert('RGB')
 
         faces = self.detect(img0)
@@ -50,8 +44,6 @@ class Model():
         if len(faces) == 0:
             return 'null'
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         #  multiple face detection
         for face_index in range(len(faces)):
             x, y, w, h = faces[face_index]
@@ -70,43 +62,14 @@ class Model():
                 coord=str(x)+', '+str(y)+', '+str(w)+ ', '+str(h)
                 cooridnates.append(coord)
         return labels, cooridnates
-        
+
 def main(image):
     model = Model()
     labels, coordinates = model.fer(image)
-    title='ferapp\ml_model\image_mode\emotion.txt'
-    fp=open(title,'w')
+    fp=open('ferapp\ml_model\image_mode\emotion.txt','w')
     for x in range(len(labels)):
         fp.writelines(labels[x] +' : ')
-        fp.writelines(coordinates[x])
-        fp.write('\n')
-=======
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
-        ##  single face detection
-        x, y, w, h = faces[0]
+        fp.writelines(coordinates[x]+' ')
 
-        img = img0.crop((x,y, x+w, y+h))
-
-        img = self.data_transforms(img)
-        img = img.view(1,3,224,224)
-        img = img.to(self.device)
-
-        with torch.set_grad_enabled(False):
-            out, _, _ = self.model(img)
-            _, pred = torch.max(out,1)
-            index = int(pred)
-            label = self.labels[index]
-
-            return label
-        
-def main(image):
-    model = Model()
-    label = model.fer(image)
-    fp=open('ferapp\ml_model\image_mode\emotion.txt','w')
-    fp.write(label)
-<<<<<<< HEAD
->>>>>>> 9bb8654c0e1fa2d1238491e18278cf49604aa637
-=======
->>>>>>> ee9aea8311262ab1ae6a28270a51f7fa736894f5
     fp.close()
+        
